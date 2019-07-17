@@ -1,19 +1,55 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+      <!-- <ul class="cd-accordion-menu">
+        <item :model="model"></item>
+      </ul> -->
+    <!-- <dropdown :menu="model"/> -->
+    <cascader2 :menu="datamenu"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// import dropdown from './components/dropdown.vue'
+// import item from './components/cascader3.vue'
+import cascader2 from './components/cascader2'
+import datamenu from './assets/menu.json'
 
+let model = { name: "init" 
+      ,children:[{
+        name:'link1',
+        children:[
+          {name:'sublink1'},
+          {name:'sublink2'},
+          {name:'sublink3'},
+          {name:'sublink4',
+            children:[
+              {name:'sublink1'},
+              {name:'sublink2'},
+              {name:'sublink3'},
+              ]}
+        ]
+        },{
+        name:'link2',
+        children:[
+          {name:'sublink1'},
+          {name:'sublink2'},
+          {name:'sublink3'},
+          {name:'sublink4'}
+          ]
+        },{
+        name:'link3'
+      }]
+  };
 export default {
-  name: 'app',
+  data: function() {
+    return {datamenu,model}
+  },
   components: {
-    HelloWorld
-  }
-}
+    // dropdown,
+    // item,
+    cascader2
+  },
+};
 </script>
 
 <style>
@@ -25,4 +61,5 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
 </style>
