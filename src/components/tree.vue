@@ -1,23 +1,23 @@
 <template>
-<div id="loop">
+  <div class="tree-menu">
     <div :style="indent" @mouseover="mouseover" id="loop">{{ label }}</div>
    <slot 
       v-if="showChildren"
    >
-    <loop v-for=" (link,index) in children " 
-    :children="link.children" 
-    :label="link.label"
-    :depth="depth + 1"
-    :key="index"
-    />
+    <tree-menu 
+      v-for="(node,index) in children" 
+      :children="node.children" 
+      :label="node.label"
+      :depth="depth + 1"
+      :key="index"
+   />
    </slot>
-</div>
+  </div>
 </template>
-
 <script>
-export default {
-    name:"loop",
-    props:["label","children","depth"],
+  export default { 
+    name: 'tree-menu',
+    props: [ 'label', 'children', 'depth' ],
     data() {
       return { showChildren: false }
     },
@@ -31,12 +31,18 @@ export default {
         this.showChildren = !this.showChildren;
       }
     }
-}
+  }
 </script>
-
 <style>
-#loop{
-    display: grid;
+.tree-menu{
+  margin: 5px;
+  background-color: beige;
 }
+#loop{
+  outline: 3px dotted slateblue;
+  background-color: sandybrown; 
+  width: 50px;
+}
+
 </style>
 

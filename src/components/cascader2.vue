@@ -1,21 +1,31 @@
  <template>
    <div class="navbar">
-    <h1> {{menu.name}} </h1>
     <ul id="navmenu">
+    <h1> {{menu.label}} </h1>
       <li v-for="(item, index) in menu.children" :key="index">
-         <a href="" > {{item.name}} </a>
+         <a href="" > {{item.label}} </a>
          <ul class="sub1">
-              <li v-for="(subitem,index) in item.children" :key="index" >
-                    <a href=""> {{subitem.name}} </a>
+              <li v-for="(link,index) in item.children" :key="index" >
+                    <a href=""> {{link.label}} </a>
                     <ul class="sub2">
-                      <li v-for=" (link,index) in subitem.children " :key="index">
-                        <a href="">{{link.name}}</a>
+                      <li v-for=" (link,index) in link.children " :key="index">
+                        <a href="">{{link.label}}</a>
                         <ul class="sub3">
-                          <li v-for=" (link,index) in subitem.children " :key="index">
-                            <a href="">{{link.name}}</a>
+                          <li v-for=" (link,index) in link.children " :key="index">
+                            <a href="">{{link.label}}</a>
                             <ul class="sub4">
-                              <li v-for=" (link,index) in subitem.children " :key="index">
-                                <a href="">{{link.name}}</a>
+                              <li v-for=" (link,index) in link.children " :key="index">
+                                <a href="">{{link.label}}</a>
+                                  <ul class="sub5">
+                                    <li v-for=" (link,index) in link.children " :key="index">
+                                      <a href="">{{link.label}}</a>
+                                      <ul class="sub6">
+                                        <li v-for=" (link,index) in link.children " :key="index">
+                                          <a href="">{{link.label}}</a>
+                                        </li>
+                                      </ul>
+                                    </li>
+                                  </ul>
                               </li>
                             </ul>
                           </li>
@@ -31,7 +41,7 @@
 
 <script>
 export default {
-  name: 'dropdown',
+  name: 'cascader2',
   props: {menu:Object},
   data(){
     return {
@@ -50,7 +60,7 @@ export default {
 }
 </script>
 
- <style>
+ <style scoped>
 *{
     margin: 0px;
     padding: 0px;
@@ -121,26 +131,37 @@ ul#navmenu ul.sub1{
 ul#navmenu ul.sub2{
     display: none;
     position: absolute;
-    /* top: 0px; */
-    margin: 2px;
-    bottom: 0px;
+    top: 0px;
+    /* bottom: 0px; */
     left: 121px;
 }
 
 ul#navmenu ul.sub3{
     display: none;
     position: absolute;
-    /* top: 0px; */
-    margin: 2px;
-    bottom: 0px;
+    top: 0px;
+    /* bottom: 0px; */
     left: 121px;
 }
 ul#navmenu ul.sub4{
     display: none;
     position: absolute;
-    /* top: 0px; */
-    bottom: 0px;
-    margin: 2px;
+    top: 0px;
+    /* bottom: 0px; */
+    left: 121px;
+}
+ul#navmenu ul.sub5{
+    display: none;
+    position: absolute;
+    top: 0px;
+    /* bottom: 0px; */
+    left: 121px;
+}
+ul#navmenu ul.sub6{
+    display: none;
+    position: absolute;
+    top: 0px;
+    /* bottom: 0px; */
     left: 121px;
 }
 
@@ -154,6 +175,12 @@ ul#navmenu .sub2 li:hover .sub3{
     display: block;
 }
 ul#navmenu .sub3 li:hover .sub4{
+    display: block;
+}
+ul#navmenu .sub4 li:hover .sub5{
+    display: block;
+}
+ul#navmenu .sub5 li:hover .sub6{
     display: block;
 }
 

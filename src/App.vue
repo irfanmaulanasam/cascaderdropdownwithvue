@@ -1,65 +1,68 @@
 <template>
   <div id="app">
-      <!-- <ul class="cd-accordion-menu">
-        <item :model="model"></item>
-      </ul> -->
-    <!-- <dropdown :menu="model"/> -->
-    <cascader2 :menu="datamenu"/>
+    <!-- <div id="container">
+      <cascader4/>
+      <div id="coresidebar">
+        <treemenu 
+        :label="datamenu.label" 
+        :children="datamenu.children"
+        :depth="0"
+        />
+      </div>
+      <div class="corenavbar">
+        <cascader
+        :menu="navbarmenu"
+        />
+      </div>
+    </div>
+    <div>
+      <cascader3
+      :menu="navbarmenu" 
+      />
+    </div>  -->
+    <div class="container">
+      <cascader4 :menu="navbarmenu" />
+    </div>
   </div>
 </template>
 
 <script>
-// import dropdown from './components/dropdown.vue'
-// import item from './components/cascader3.vue'
-import cascader2 from './components/cascader2'
-import datamenu from './assets/menu.json'
-
-let model = { name: "init" 
-      ,children:[{
-        name:'link1',
-        children:[
-          {name:'sublink1'},
-          {name:'sublink2'},
-          {name:'sublink3'},
-          {name:'sublink4',
-            children:[
-              {name:'sublink1'},
-              {name:'sublink2'},
-              {name:'sublink3'},
-              ]}
-        ]
-        },{
-        name:'link2',
-        children:[
-          {name:'sublink1'},
-          {name:'sublink2'},
-          {name:'sublink3'},
-          {name:'sublink4'}
-          ]
-        },{
-        name:'link3'
-      }]
-  };
+// import datamenu from './assets/menu.json'
+import navbarmenu from './assets/menu2.json'
+// import treemenu from './components/tree'
+// import cascader from './components/cascader2'
+// import cascader3 from './components/cascader3'
+import cascader4 from './components/cascader4'
 export default {
+  name:'app',
   data: function() {
-    return {datamenu,model}
+    return {
+      // datamenu,
+      navbarmenu
+      }
   },
   components: {
-    // dropdown,
-    // item,
-    cascader2
+    // treemenu,
+    // cascader,
+    // cascader3,
+    cascader4
   },
 };
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+#container {
+  display: flex;
 
+}
+#coresidebar{
+  background-color: aquamarine;
+  outline: 1px #2c3e50;
+  width: 20%;
+}
+#corenavbar{
+  background-color: aliceblue;
+  border: 50px solid #2c3e50;
+  outline: 1px #2c3e50;
+}
 </style>

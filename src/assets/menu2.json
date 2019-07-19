@@ -1,5 +1,5 @@
 {
-    "label":"ROOT",
+    "name":"get dynamic button",
     "children":[
         { "label":"link1",
             "children":[
@@ -30,7 +30,28 @@
                                 { "label":"link1.5.3.2" },
                                 { "label":"link1.5.3.3" },
                                 { "label":"link1.5.3.4" },
-                                { "label":"link1.5.3.5" }
+                                { "label":"link1.5.3.5" ,
+                                    "children":[
+                                        { "label":"link1.5.3.5.1" },
+                                        { "label":"link1.5.3.5.2" },
+                                        { "label":"link1.5.3.5.3" },
+                                        { "label":"link1.5.3.5.4" },
+                                        { "label":"link1.5.3.5.5",
+                                            "children":[
+                                            { "label":"link1.5.3.5.5.1" },
+                                            { "label":"link1.5.3.5.5.2" },
+                                            { "label":"link1.5.3.5.5.3" },
+                                            { "label":"link1.5.3.5.5.4" },
+                                            { "label":"link1.5.3.5.5.5",
+                                                "children":[
+                                                { "label":"link1.5.3.5.5.5.1" },
+                                                { "label":"link1.5.3.5.5.5.2" },
+                                                { "label":"link1.5.3.5.5.5.3" },
+                                                { "label":"link1.5.3.5.5.5.4" },
+                                                { "label":"link1.5.3.5.5.5.5" }
+                                            ] }
+                                        ] }
+                                    ]}
                             ] },
                         { "label":"link1.5.4" },
                         { "label":"link1.5.5" }
