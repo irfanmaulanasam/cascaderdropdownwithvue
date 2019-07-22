@@ -3,8 +3,11 @@
         <h2> {{menu.name}} </h2>
         <div id="container">
             <div id="parentContainer">
-                <div class="parent" v-for="(link,index)in menu.children" :key="index" >
-                    <a href="#"> {{link.label}} </a>
+                <div>
+                    <ul>
+                       <!-- <li v-for=" (link,index) "> -->
+                        <!-- </li>  -->
+                    </ul>
                 </div>
             </div>
         </div>
